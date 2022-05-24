@@ -49,7 +49,7 @@ Build and Deploy:
         scripts:
           - |-
             #!/bin/bash
-            echo Test
+            echo Test-spec
         description: Test
   artifact-subscriptions: []
 variables:
