@@ -1,0 +1,60 @@
+---
+version: 2
+plan:
+  project-key: TES2
+  key: TES2
+  name: test2
+stages:
+  - Build and Deploy:
+      manual: false
+      final: false
+      jobs:
+        - Build and Deploy
+Build and Deploy:
+  key: BAD
+  tasks:
+    - checkout:
+        force-clean-build: 'false'
+        description: Checkout Default Repository
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            #!/bin/bash
+            echo ${bamboo.secretenv}
+        description: Test1
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            #!/bin/bash
+            echo ${bamboo.test}
+        description: Test2
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            #!/bin/bash
+            echo ${bamboo.awsS3Bucket}
+        description: Test3
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            #!/bin/bash
+            echo ${bamboo.Test4}
+        description: Test4
+    - script:
+        interpreter: SHELL
+        scripts:
+          - |-
+            #!/bin/bash
+            echo Test5
+        description: Test5
+  artifact-subscriptions: []
+variables:
+  awsS3Bucket: test
+  secretenv: BAMSCRT@0@0@K8N8xhHXxN2NIKiDdLmssw==
+  test: hello
+  Test4: test4
+  secretTest: BAMSCRT@0@0@q5iCY9IgQ72rWFWUPcIbrA==
