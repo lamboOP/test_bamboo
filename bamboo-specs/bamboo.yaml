@@ -49,8 +49,8 @@ Build and Deploy:
         scripts:
           - |-
             #!/bin/bash
-            echo Test5
-        description: Test5
+            echo Test
+        description: Test
   artifact-subscriptions: []
 variables:
   awsS3Bucket: test
